@@ -103,6 +103,27 @@
           "health"
         ]
       }
+    },
+    "/api/v1/public/health": {
+      "get": {
+        "operationId": "public_health_api_v1_public_health_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope_HealthData_"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Public Health",
+        "tags": [
+          "public"
+        ]
+      }
     }
   }
 }
