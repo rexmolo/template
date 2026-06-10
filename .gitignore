@@ -1,0 +1,23 @@
+.DS_Store
+.env
+.env.*
+!.env.example
+.pytest_cache/
+.ruff_cache/
+.venv/
+__pycache__/
+*.py[cod]
+!pyproject.toml
+!**/pyproject.toml
+
+# Local planning/reference material, not part of the reusable template.
+BLUEPRINT.md
+example-doc/
+
+# Local agent/tooling state.
+.claude/
+.codex/
+
+# Generated/client artifacts.
+clients/
+packages/contract/openapi.json
