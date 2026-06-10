@@ -1,0 +1,21 @@
+{
+  "name": "@sass-template/contract",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/client.ts",
+    "./types": "./src/types.ts"
+  },
+  "scripts": {
+    "check": "tsc --noEmit",
+    "generate": "openapi-typescript openapi.json -o src/types.ts"
+  },
+  "dependencies": {
+    "openapi-fetch": "^0.15.0"
+  },
+  "devDependencies": {
+    "openapi-typescript": "^7.10.1",
+    "typescript": "^5.9.3"
+  }
+}

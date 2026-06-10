@@ -19,5 +19,6 @@ example-doc/
 .codex/
 
 # Generated/client artifacts.
+node_modules/
+.corepack/
 clients/
-packages/contract/openapi.json

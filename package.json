@@ -1,0 +1,8 @@
+{
+  "name": "sass-template",
+  "private": true,
+  "packageManager": "pnpm@10.25.0",
+  "scripts": {
+    "contract:generate": "pnpm --filter @sass-template/contract generate"
+  }
+}

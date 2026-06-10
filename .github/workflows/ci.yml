@@ -18,6 +18,27 @@ jobs:
         working-directory: services/api
         run: uv run pytest
 
+  contract:
+    name: API contract drift
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: astral-sh/setup-uv@v7
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.25.0
+      - name: Install contract dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Export OpenAPI
+        working-directory: services/api
+        run: uv run python ../../scripts/export-openapi.py
+      - name: Generate TypeScript contract
+        run: pnpm --filter @sass-template/contract generate
+      - name: Type-check TypeScript contract
+        run: pnpm --filter @sass-template/contract check
+      - name: Check committed contract artifacts
+        run: git diff --exit-code packages/contract/openapi.json packages/contract/src/types.ts
+
   compose:
     name: Compose config
     runs-on: ubuntu-latest
